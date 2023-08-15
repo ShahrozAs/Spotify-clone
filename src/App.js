@@ -35,9 +35,21 @@ function App() {
             user: user,
           });
         })
-        .catch((err) => {
-          console.log("Error", err);
-        });
+        spotify.getUserPlaylists().then((playlists)=>{
+          dispatch({
+            type:"SET_PLAYLISTS",
+            playlists:playlists
+          })
+        })
+         //mysongs 7F7iUnpqa45M7UCgIh24SW
+         //rainy   4u6bKqrYkX1JHCASM2bFIY
+        spotify.getPlaylist('7F7iUnpqa45M7UCgIh24SW').then(response=>{
+          dispatch({
+            type:"SET_DISCOVER_WEEKLY",
+            discover_weekly:response,
+          })
+        })
+    
       }
     }, []);
 

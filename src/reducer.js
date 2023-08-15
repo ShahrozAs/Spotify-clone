@@ -26,6 +26,7 @@
 
 // import { findAllByDisplayValue } from "@testing-library/react";
 
+
 export const initialState = {
   user: null,
   playlists: [],
@@ -34,7 +35,7 @@ export const initialState = {
   top_artists: null,
   playing: false,
   item: null,
-  token:"BQDVws1xIPxI2Eu8obagiPncRDmBbnoAZaBBYKe1LtieNAbzwSNDZyCvDY6LfUwPejfMFu1b5Bg-7XLYpo5y6Vd3dKybxhnelJUWehyjwnmXwtXLXznV59wXLl6agID5fzX-Dc6KBywdOOvgVcqD62mdq_9D1r8JWHZpomEmBjGmQ0aphm6whk4IR9ULZedQrIDme9W2JAqZJlESIcjF"
+  // token:"BQDVws1xIPxI2Eu8obagiPncRDmBbnoAZaBBYKe1LtieNAbzwSNDZyCvDY6LfUwPejfMFu1b5Bg-7XLYpo5y6Vd3dKybxhnelJUWehyjwnmXwtXLXznV59wXLl6agID5fzX-Dc6KBywdOOvgVcqD62mdq_9D1r8JWHZpomEmBjGmQ0aphm6whk4IR9ULZedQrIDme9W2JAqZJlESIcjF"
 };
 
 const reducer = (state, action) => {
@@ -50,6 +51,16 @@ const reducer = (state, action) => {
         ...state,
         token: action.token,
       };
+    case "SET_PLAYLISTS":
+      return {
+        ...state,
+        playlists: action.playlists,
+      };
+      case "SET_DISCOVER_WEEKLY":
+        return{
+          ...state,
+          discover_weekly:action.discover_weekly,
+        }
     default:
       return state;
   }
